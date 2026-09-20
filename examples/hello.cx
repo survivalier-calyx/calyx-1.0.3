@@ -1,0 +1,7 @@
+// Mon premier programme Calyx
+use #int/color;
+use #int/sys;
+
+let nom = "Monde";
+print(color.bold(color.green("Bonjour ${nom} !")));
+print("Système : ${sys.os} | date : ${sys.date()} | heure : ${sys.time()}");

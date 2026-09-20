@@ -1,0 +1,14 @@
+// Module utilisateur : après installation, "use test;" fonctionne dans tous vos projets.
+const VERSION = "1.0";
+
+fn double(n) {
+    return n * 2;
+}
+
+fn saluer(nom) {
+    return "Salut ${nom} !";
+}
+
+fn _secret() {
+    return "les noms commençant par _ ne sont pas exportés";
+}
