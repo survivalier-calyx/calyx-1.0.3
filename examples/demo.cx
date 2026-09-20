@@ -1,0 +1,48 @@
+// Démonstration du langage Calyx
+use test;
+use #int/color;
+use #int/math;
+
+// --- variables, constantes, calculs
+let a = 10;
+const PI2 = math.pi * 2;
+print("a * 3 = ${a * 3}  |  2π = ${math.round(PI2, 2)}");
+
+// --- fonctions (avec valeur par défaut) et récursivité
+fn fact(n) {
+    if n <= 1 { return 1; }
+    return n * fact(n - 1);
+}
+fn puissance(base, exp = 2) { return base ** exp; }
+print("fact(10) = ${fact(10)}  |  puissance(3) = ${puissance(3)}");
+
+// --- listes, maps, fonctions anonymes
+let nombres = [5, 3, 8, 1];
+let carres = nombres.map(fn(x) { return x * x; });
+print("carrés : ${carres}, triés : ${nombres.sort()}");
+
+let perso = { nom: "Ada", age: 36, langages: ["Calyx", "Python"] };
+perso.age += 1;
+for cle in perso.keys() {
+    print("  ${cle} => ${perso[cle]}");
+}
+
+// --- classes et héritage
+class Animal {
+    fn init(nom) { self.nom = nom; }
+    fn parler() { return "${self.nom} fait un bruit"; }
+}
+class Chien extends Animal {
+    fn parler() { return super.parler() + " : Wouf !"; }
+}
+print(Chien("Rex").parler());
+
+// --- erreurs
+try {
+    let x = 1 / 0;
+} catch e {
+    print(color.red("Erreur attrapée : ${e}"));
+}
+
+// --- modules utilisateur
+print(test.saluer("Calyx") + " double(21) = ${test.double(21)}");
