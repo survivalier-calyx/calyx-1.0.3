@@ -43,7 +43,7 @@ mkdir -p "$APP.AppDir/usr/bin"
 cp -r "dist/$APP/"* "$APP.AppDir/usr/bin/"
 
 # Icon: reuse the linux asset, converted to a top-level PNG icon.
-cp "assets/linux.png" "$APP.AppDir/$APP.png"
+cp "assets/calyx.png" "$APP.AppDir/$APP.png"
 
 # Desktop entry (required by AppImage).
 cat > "$APP.AppDir/$APP.desktop" <<EOF
